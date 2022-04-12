@@ -38,7 +38,6 @@ async function getData() {
         todoSection.appendChild(newTodo);
       });
     }
-  
 getData().catch((err) => console.error(err));
 
 

@@ -20,6 +20,7 @@ function handleFormSubmission(e) {
 const url = "https://jsonplaceholder.typicode.com/users/1/todos";
 
 
+
 async function getData() {
   const todoData = await fetch(url);
   const todos = await todoData.json();
@@ -39,6 +40,9 @@ async function getData() {
     }
   
 getData().catch((err) => console.error(err));
+
+
+
 
 // function deleting (){
 

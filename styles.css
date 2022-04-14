@@ -60,7 +60,11 @@ h2 {
   
 
 }
+/*manual task */
 
+#myUL{
+    font-size: 5rem;
+}
 
 /*pill for new list items*/
 li {
@@ -70,40 +74,41 @@ li {
     background: #fff;
    color: #019267;;
     cursor: pointer;
-    display: flex;
+  
     font-size: 1rem;
     font-weight: bold;
     height: 5.625rem;
+    list-style-type: none;
     margin-bottom: 1rem;
     padding: 0.3125rem 0.625rem;
 
 }
 
+/*delete button */
+.btn{
 
-
-/*api list item */
-.list-item {
-    background: #ffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-     color: #019267;;
-  list-style-type: none;
-  height: 5.625rem;
-  margin-bottom: 1rem;
- 
+    font-size: 1rem;
+    background-color: #85c88a;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    height: 1.25rem;
+    border-radius: 1.25rem;
+    margin-left: 92%;
+    margin-top: 1.875rem;
+    position: relative;
 }
 
-section{
+/* section{
     padding: 0 0 0 2.5rem;
-}
-
-
-
-/*manual task */
+} */
 
 
 
 
-#myUL{
-    font-size: 5rem;
-}
+
+
+
+

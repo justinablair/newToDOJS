@@ -4,33 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
     <title>To Do List</title>
 </head>
 
 <body>
     <h2>To do List</h2>
 
-    <form id="js-form" onsubmit="()=> handleFormSubmission()">
+    <form id="js-form">
         <input type="text" class='input' placeholder="Enter Task:">
-        <button type="submit"  class="push">Add</button>
+        <button type="submit" class="push">Add</button>
     </form>
-
- <ul id="myUl"> 
- </ul>
-    
-        <section id= "todo-section"></section>
-        <template id="todo-template">
-            <li class="list-item"> 
-                <div>
-                <h3 class="todo-title"></h3>
-                <p class="todo-completed"></p>
-            </div>
-            
-        </template>
-
-
-
-    <script src="app.js" defer></script>
+    <ul id="myUl"> </ul>
+    <template id="todo-template">
+    </template>
 </body>
 
 </html>

@@ -4,16 +4,23 @@ const uiDisplay = document.querySelector("#myUl");
 const todoTemplate = document.querySelector("#todo-template");
 
 function handleFormSubmission(e) {
-  e.preventdefault();
   if (input.value.length === 0) {
     alert("Please enter a task");
   } else {
     const domObject = document.createElement("li");
     domObject.innerText = input.value;
-    uiDisplay.appendChild(domObject);
+    uiDisplay.prepend(domObject);
   }
   // return false; //do not submit the form
+  e.preventDefault();
 }
+
+// your form
+var form = document.getElementById("js-form");
+
+// attach event listener
+form.addEventListener("submit", handleFormSubmission, true);
+
 
 const url = "https://jsonplaceholder.typicode.com/users/1/todos";
 

@@ -1,0 +1,109 @@
+body {
+    background: #dff6ff;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,
+        "Lucida Grande", sans-serif;
+    ;
+}
+
+h1 {
+    border-bottom: 0.125rem solid #6fb2d2;
+    color: #019267;
+    margin: 1.25rem 0;
+    padding-bottom: 0.625rem;
+    text-align: center;
+    
+    
+}
+
+h2 {
+    border-bottom: 0.125rem;
+    color: #019267;
+    margin: 1.25rem 0;
+    padding-bottom: 0.625rem;
+    text-align: center;
+}
+
+
+
+/* input field */
+.input {
+    border: 0;
+    border-bottom: 0.125rem solid grey;
+    background: transparent;
+    position: relative;
+    margin-top: 0.625rem;
+    margin: auto;
+    margin-left: 35%;
+    padding: 0.75rem;
+    outline: 0;
+    transition: 0.2s;
+    width: 30%;
+}
+
+
+/*Add button */
+
+.push {
+    background-color: #85c88a;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 0.3125rem;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    height: 2.625rem;
+    position: relative;
+    outline: none;
+    width: 10%;
+   
+  
+
+}
+
+
+/*pill for new list items*/
+li {
+    align-items: center;
+    border-radius: 0.625rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+    background: #fff;
+   color: #019267;;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 5.625rem;
+    margin-bottom: 1rem;
+    padding: 0.3125rem 0.625rem;
+
+}
+
+
+
+/*api list item */
+.list-item {
+    background: #ffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+     color: #019267;;
+  list-style-type: none;
+  height: 5.625rem;
+  margin-bottom: 1rem;
+ 
+}
+
+section{
+    padding: 0 0 0 2.5rem;
+}
+
+
+
+/*manual task */
+
+
+
+
+#myUL{
+    font-size: 5rem;
+}

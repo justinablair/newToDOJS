@@ -60,7 +60,11 @@ h2 {
   
 
 }
+/*manual task */
 
+#myUL{
+    font-size: 5rem;
+}
 
 /*pill for new list items*/
 li {
@@ -70,10 +74,11 @@ li {
     background: #fff;
    color: #019267;;
     cursor: pointer;
-    display: flex;
+  
     font-size: 1rem;
     font-weight: bold;
     height: 5.625rem;
+    list-style-type: none;
     margin-bottom: 1rem;
     padding: 0.3125rem 0.625rem;
 
@@ -81,29 +86,14 @@ li {
 
 
 
-/*api list item */
-.list-item {
-    background: #ffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-     color: #019267;;
-  list-style-type: none;
-  height: 5.625rem;
-  margin-bottom: 1rem;
- 
-}
-
-section{
+/* section{
     padding: 0 0 0 2.5rem;
-}
-
-
-
-/*manual task */
+} */
 
 
 
 
-#myUL{
-    font-size: 5rem;
-}
+
+
+
+

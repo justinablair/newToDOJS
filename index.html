@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
     <title>To Do List</title>
 </head>
 
@@ -12,24 +13,13 @@
 
     <form id="js-form" onsubmit="()=> handleFormSubmission()">
         <input type="text" class='input' placeholder="Enter Task:">
-        <button type="submit"  class="push">Add</button>
+        <button type="submit" class="push">Add</button>
     </form>
 
- <ul id="myUl"> 
- </ul>
-    
-        <section id= "todo-section"></section>
-        <template id="todo-template">
-            <li class="list-item"> 
-                <div>
-                <h3 class="todo-title"></h3>
-                <p class="todo-completed"></p>
-            </div>
-            
-        </template>
+    <ul id="myUl"> </ul>
+    <template id="todo-template">
+    </template>
 
-
-    <script src="app.js" defer></script>
 </body>
 
 </html>

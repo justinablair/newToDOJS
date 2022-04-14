@@ -7,20 +7,24 @@ function handleFormSubmission(e) {
   if (input.value.length === 0) {
     alert("Please enter a task");
   } else {
+
     const domObject = document.createElement("li");
     domObject.innerText = input.value;
-    uiDisplay.prepend(domObject);
+
+    const deleteButton = document.createElement("button"); //create new button element
+    deleteButton.setAttribute("class", "btn"); //set button class to be btn
+    deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
+    domObject.appendChild(deleteButton);
+
+    uiDisplay.prepend(domObject); //List item+delete button added to top of Ui display 
   }
-  // return false; //do not submit the form
-  e.preventDefault();
+
+  e.preventDefault();   // return false; //do not submit the form
 }
 
-// your form
+
 var form = document.getElementById("js-form");
-
-// attach event listener
-form.addEventListener("submit", handleFormSubmission, true);
-
+form.addEventListener("submit", handleFormSubmission, true); // attach event listener
 
 const url = "https://jsonplaceholder.typicode.com/users/1/todos";
 

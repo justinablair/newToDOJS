@@ -84,7 +84,22 @@ li {
 
 }
 
+/*delete button */
+.btn{
 
+    font-size: 1rem;
+    background-color: #85c88a;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    height: 1.25rem;
+    border-radius: 1.25rem;
+    margin-left: 92%;
+    margin-top: 1.875rem;
+    position: relative;
+}
 
 /* section{
     padding: 0 0 0 2.5rem;

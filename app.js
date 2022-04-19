@@ -16,7 +16,7 @@ function handleFormSubmission(e) {
     deleteButton.setAttribute("class", "btn"); //set button class to be btn
     deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
     domObject.appendChild(deleteButton);
-    input.value=" ";
+    input.value="";
     ulDisplay.prepend(domObject); //List item+delete button added to top of Ui display 
     deleteButton.addEventListener("click", removeItem); 
     

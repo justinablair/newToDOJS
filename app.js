@@ -2,6 +2,8 @@
 const input = document.querySelector("#js-form input");
 const ulDisplay = document.querySelector("#myUl");
 const todoTemplate = document.querySelector("#todo-template");
+const addButton=document.querySelector(".push");
+
 
 function handleFormSubmission(e) {
   if (input.value.length === 0) {
@@ -10,19 +12,19 @@ function handleFormSubmission(e) {
 
     const domObject = document.createElement("li");
     domObject.innerText = input.value;
-
     const deleteButton = document.createElement("button"); //create new button element
     deleteButton.setAttribute("class", "btn"); //set button class to be btn
     deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
     domObject.appendChild(deleteButton);
+    input.value=" ";
     ulDisplay.prepend(domObject); //List item+delete button added to top of Ui display 
-    for (let i = 0; i < deleteButton.length; i++){ //increment amont of buttons, when button clicked remove item
-      deleteButton[i].addEventListener("click", removeItem);
-    }
+    deleteButton.addEventListener("click", removeItem); 
+    
   }
 
   e.preventDefault();   // return false; //do not submit the form
 }
+
 
 
 
@@ -62,6 +64,12 @@ async function getData() {
     todoTitle.innerText = title;
     todoCompleted.innerText = completed;
     ulDisplay.appendChild(newTodo); //todoTemplate added to ui display
+  
+    if (todoCompleted.innerText==="true"){
+      todoCompleted.classList.add("strike");
+      todoTitle.classList.add("strike");
+      ;
+    }
   });
 }
 getData().catch((err) => console.error(err));

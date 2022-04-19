@@ -106,7 +106,9 @@ li {
 } */
 
 
-
+.strike{
+    text-decoration: line-through;
+}
 
 
 

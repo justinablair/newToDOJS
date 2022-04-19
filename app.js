@@ -1,6 +1,6 @@
 /*user list */
 const input = document.querySelector("#js-form input");
-const uiDisplay = document.querySelector("#myUl");
+const ulDisplay = document.querySelector("#myUl");
 const todoTemplate = document.querySelector("#todo-template");
 
 function handleFormSubmission(e) {
@@ -15,13 +15,21 @@ function handleFormSubmission(e) {
     deleteButton.setAttribute("class", "btn"); //set button class to be btn
     deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
     domObject.appendChild(deleteButton);
-
-    uiDisplay.prepend(domObject); //List item+delete button added to top of Ui display 
+    ulDisplay.prepend(domObject); //List item+delete button added to top of Ui display 
+    for (let i = 0; i < deleteButton.length; i++){ //increment amont of buttons, when button clicked remove item
+      deleteButton[i].addEventListener("click", removeItem);
+    }
   }
 
   e.preventDefault();   // return false; //do not submit the form
 }
 
+
+
+
+function removeItem(){
+  this.parentNode.remove();
+  }      
 
 var form = document.getElementById("js-form");
 form.addEventListener("submit", handleFormSubmission, true); // attach event listener
@@ -38,7 +46,7 @@ async function getData() {
 
     //li to contain fetched todo items
     const apiLi = document.createElement("li");
-    uiDisplay.appendChild(apiLi);
+    ulDisplay.appendChild(apiLi);
 
     const newTodo = document.importNode(todoTemplate.content, true);
 
@@ -53,7 +61,7 @@ async function getData() {
     //title and completed placeholders replaced with api data
     todoTitle.innerText = title;
     todoCompleted.innerText = completed;
-    uiDisplay.appendChild(newTodo); //todoTemplate added to ui display
+    ulDisplay.appendChild(newTodo); //todoTemplate added to ui display
   });
 }
 getData().catch((err) => console.error(err));

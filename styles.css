@@ -77,13 +77,14 @@ li {
   
     font-size: 1rem;
     font-weight: bold;
-    height: 5.625rem;
+    height: 5.625rem; 
     list-style-type: none;
     margin-bottom: 1rem;
     padding: 0.3125rem 0.625rem;
 
 }
 
+p{margin-top: -1.125rem;}
 /*delete button */
 .btn{
 
@@ -97,7 +98,8 @@ li {
     height: 1.25rem;
     border-radius: 1.25rem;
     margin-left: 92%;
-    margin-top: 1.875rem;
+    
+    /* margin-top: 1.875rem; */
     position: relative;
 }
 

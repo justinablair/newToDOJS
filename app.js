@@ -56,6 +56,12 @@ async function getData() {
     const todoTitle = document.createElement("h3");
     apiLi.appendChild(todoTitle); //h3 added to li
 
+    /*delete button */
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class", "btn"); 
+   deleteButton.appendChild(document.createTextNode("x")); 
+   apiLi.appendChild(deleteButton);
+   deleteButton.addEventListener("click", removeItem); 
     //p element placeholder added to fetched api li
     const todoCompleted = document.createElement("p");
     apiLi.appendChild(todoCompleted);
@@ -64,7 +70,8 @@ async function getData() {
     todoTitle.innerText = title;
     todoCompleted.innerText = completed;
     ulDisplay.appendChild(newTodo); //todoTemplate added to ui display
-  
+
+
     if (todoCompleted.innerText==="true"){
       todoCompleted.classList.add("strike");
       todoTitle.classList.add("strike");

@@ -2,30 +2,6 @@
 class Todo {
   constructor() {}
 
-  submit() {
-    const form = document.getElementById("js-form");
-   form.addEventListener("click", function(e){
-    e.preventDefault();
-  });
-  }
-
-  button() {
-    const deleteButton = document.createElement("button"); //create new button element
-    const container = document.createElement("div");
-    container.appendChild(deleteButton);
-    deleteButton.setAttribute("class", "btn"); //set button class to be btn
-    deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
-    const ulDisplay = document.querySelector("#myUl");
-    ulDisplay.addEventListener("click", (e) => {
-      const target = e.target;
-      if (target.className === "btn") {
-        target.parentNode.parentNode.remove();
-      }
-    });
-    return container;
-    
-  }
-
   async getData() {
     const url = "https://jsonplaceholder.typicode.com/users/1/todos";
     const todoData = await fetch(url);
@@ -66,8 +42,47 @@ class Todo {
   }
 
 
- 
+
+  handleFormSubmission(e) {
+  //const form = document.getElementById("js-form");
+  const input = document.querySelector("#js-form input");
+  const addButton = document.querySelector("#js-form button");
+  addButton.addEventListener("click", function(e){
+  e.preventDefault();
+  if (input.value.length === 0) {
+    alert("Please enter a task");
+  }else { 
+    const domObject = document.createElement("li");
+    domObject.innerText = input.value;
+    input.value = "";
+
+    const ulDisplay = document.querySelector("#myUl");
+      ulDisplay.prepend(domObject)
+  console.log(input.value)}
   
+});
+}
+
+button() {
+  const deleteButton = document.createElement("button"); //create new button element
+  const container = document.createElement("div");
+  container.appendChild(deleteButton);
+  deleteButton.setAttribute("class", "btn"); //set button class to be btn
+  deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
+  const ulDisplay = document.querySelector("#myUl");
+  ulDisplay.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target.className === "btn") {
+      target.parentNode.parentNode.remove();
+    }
+  });
+  return container;
+  
+}
+
+
+
+  /*
 
   handleFormSubmission(e) {
     const input = document.querySelector("#js-form input");
@@ -77,16 +92,15 @@ class Todo {
       const domObject = document.createElement("li");
       domObject.innerText = input.value;
 
-      const deleteButton = this.delete();
-
+      const deleteButton = this.button();
       domObject.appendChild(deleteButton);
      
       input.value = "";
       const ulDisplay = document.querySelector("#myUl");
       ulDisplay.prepend(domObject); //List item+delete button added to top of Ui display
     }
-    e.preventDefault();
-  }
+
+  } */
   
 
 
@@ -95,4 +109,6 @@ class Todo {
 }
 
 new Todo().getData();
+new Todo().handleFormSubmission();
+
 

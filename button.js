@@ -1,3 +1,5 @@
+//IGNORE THIS CODE IT IS INACTIVE 
+
 
 const inputLength=input.value.length;
 

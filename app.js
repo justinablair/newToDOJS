@@ -4,9 +4,10 @@ const ulDisplay = document.querySelector("#myUl");
 const todoTemplate = document.querySelector("#todo-template");
 const addButton = document.querySelector(".push");
 const form = document.getElementById("js-form");
+
 const url = "https://jsonplaceholder.typicode.com/users/1/todos";
 
-async function getData() {
+const getData=async()=> {
   const todoData = await fetch(url);
   const todos = await todoData.json();
 
@@ -16,7 +17,7 @@ async function getData() {
 
     //li to contain fetched todo items
     const apiLi = document.createElement("li");
-    ulDisplay.appendChild(apiLi);
+   ulDisplay.appendChild(apiLi);
 
     const newTodo = document.importNode(todoTemplate.content, true);
 
@@ -25,23 +26,25 @@ async function getData() {
     apiLi.appendChild(todoTitle); //h3 added to li
     const deleteButton = button();
 
-    apiLi.appendChild(deleteButton);
+    const addDeleteBtn= apiLi.appendChild(deleteButton);
     //p element placeholder added to fetched api li
     const todoCompleted = document.createElement("p");
-    apiLi.appendChild(todoCompleted);
+   apiLi.appendChild(todoCompleted);
 
     //title and completed placeholders replaced with api data
     todoTitle.innerText = title;
     todoCompleted.innerText = completed;
-    ulDisplay.appendChild(newTodo); //todoTemplate added to ui display
+  ulDisplay.appendChild(newTodo); //todoTemplate added to ui display
 
     if (todoCompleted.innerText === "true") {
-      todoCompleted.classList.add("strike");
-      todoTitle.classList.add("strike");
+      const strikeTitle= todoCompleted.classList.add("strike");
+      const strikeStatus= todoTitle.classList.add("strike");
     }
   });
 }
 getData();
+
+
 
 ulDisplay.addEventListener("click", (e) => {
   const target = e.target;
@@ -52,7 +55,8 @@ ulDisplay.addEventListener("click", (e) => {
 
 form.addEventListener("submit", handleFormSubmission, true); // attach event listener
 
-function button() {
+
+ button=()=> {
   const deleteButton = document.createElement("button"); //create new button element
   const container = document.createElement("div");
   container.appendChild(deleteButton);
@@ -60,6 +64,8 @@ function button() {
   deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
   return container;
 }
+
+
 
 function handleFormSubmission(e) {
   if (input.value.length === 0) {

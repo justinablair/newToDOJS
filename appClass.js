@@ -1,13 +1,25 @@
-
 class Todo {
-  constructor() {}
+  constructor() {
+    this.cacheElements();
+    this.setUpEvents();
+    this.getData();
+  }
+
+  cacheElements() {
+    this.ulDisplay = document.querySelector("#myUl");
+    this.todoTemplate = document.querySelector("#todo-template");
+    this.input = document.querySelector("#js-form input");
+    this.addButton = document.querySelector("#js-form button");
+  }
+
+  setUpEvents(){
+    this.addButton.addEventListener("click", this.handleFormSubmission.bind(this))
+  }
 
   async getData() {
     const url = "https://jsonplaceholder.typicode.com/users/1/todos";
     const todoData = await fetch(url);
     const todos = await todoData.json();
-    const ulDisplay = document.querySelector("#myUl");
-    const todoTemplate = document.querySelector("#todo-template");
 
     todos.forEach((todo) => {
       const title = todo.title;
@@ -16,9 +28,9 @@ class Todo {
       //li to contain fetched todo items
       const apiLi = document.createElement("li");
 
-      ulDisplay.appendChild(apiLi);
+      this.ulDisplay.appendChild(apiLi);
 
-      const newTodo = document.importNode(todoTemplate.content, true);
+      const newTodo = document.importNode(this.todoTemplate.content, true);
       //h3 element placeholder added to fetched api li
       const todoTitle = document.createElement("h3");
       apiLi.appendChild(todoTitle); //h3 added to li
@@ -32,7 +44,7 @@ class Todo {
       //title and completed placeholders replaced with api data
       todoTitle.innerText = title;
       todoCompleted.innerText = completed;
-      ulDisplay.appendChild(newTodo); //todoTemplate added to ui display
+      this.ulDisplay.appendChild(newTodo); //todoTemplate added to ui display
 
       if (todoCompleted.innerText === "true") {
         todoCompleted.classList.add("strike");
@@ -41,46 +53,35 @@ class Todo {
     });
   }
 
-
-
   handleFormSubmission(e) {
-  //const form = document.getElementById("js-form");
-  const input = document.querySelector("#js-form input");
-  const addButton = document.querySelector("#js-form button");
-  addButton.addEventListener("click", function(e){
-  e.preventDefault();
-  if (input.value.length === 0) {
-    alert("Please enter a task");
-  }else { 
-    const domObject = document.createElement("li");
-    domObject.innerText = input.value;
-    input.value = "";
-
-    const ulDisplay = document.querySelector("#myUl");
-      ulDisplay.prepend(domObject)
-  console.log(input.value)}
-  
-});
-}
-
-button() {
-  const deleteButton = document.createElement("button"); //create new button element
-  const container = document.createElement("div");
-  container.appendChild(deleteButton);
-  deleteButton.setAttribute("class", "btn"); //set button class to be btn
-  deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
-  const ulDisplay = document.querySelector("#myUl");
-  ulDisplay.addEventListener("click", (e) => {
-    const target = e.target;
-    if (target.className === "btn") {
-      target.parentNode.parentNode.remove();
+debugger;
+    e.preventDefault();
+      if (this.input.value.length === 0) {
+        alert("Please enter a task");
+      } else {
+        const domObject = document.createElement("li");
+        domObject.innerText = this.input.value;
+        const deleteButton = this.button();
+        domObject.appendChild(deleteButton);
+        this.input.value = "";
+       this.ulDisplay.prepend(domObject);
+      }
     }
-  });
-  return container;
-  
-}
 
-
+  button() {
+    const deleteButton = document.createElement("button"); //create new button element
+    const container = document.createElement("div");
+    container.appendChild(deleteButton);
+    deleteButton.setAttribute("class", "btn"); //set button class to be btn
+    deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
+   this.ulDisplay.addEventListener("click", (e) => {
+      const target = e.target;
+      if (target.className === "btn") {
+        target.parentNode.parentNode.remove();
+      }
+    });
+    return container;
+  }
 
   /*
 
@@ -96,19 +97,11 @@ button() {
       domObject.appendChild(deleteButton);
      
       input.value = "";
-      const ulDisplay = document.querySelector("#myUl");
-      ulDisplay.prepend(domObject); //List item+delete button added to top of Ui display
+      constthis.ulDisplay = document.querySelector("#myUl");
+     this.ulDisplay.prepend(domObject); //List item+delete button added to top of Ui display
     }
 
   } */
-  
-
-
-  
-
 }
 
-new Todo().getData();
-new Todo().handleFormSubmission();
-
-
+new Todo();

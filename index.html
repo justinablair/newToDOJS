@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
-    <script src="appClass.js" defer></script>
+    <script src="app.js" defer></script>
     <title>To Do List</title>
 </head>
 
 <body>
+ 
     <h2>To do List</h2>
 
     <form id="js-form">
@@ -18,6 +19,23 @@
     <ul id="myUl">  </ul>
     <template id="todo-template">
     </template>
+
+
+    <!-- ADDED JUNE -->
+<Dialog id="empty-task-dialog">
+    <h2 id="empty-task-message">Please enter a task!</h2>
+    <button class="exit-button" id="empty-exit">x</button> 
+</Dialog>
+
+    <dialog id="todo-dialog">  
+        <p id="todo-dialog-title"></p>  
+        <button class="exit-button" id="todo-exit">x</button> 
+        <div id="action-buttons">
+         <button class="btn" id="cancel">Cancel</button>  
+         <button class="btn" id="continue">I'm sure</button>
+        </div>
+        </dialog>  
+    <!-- -->
 </body>
 
 </html>

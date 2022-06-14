@@ -5,9 +5,19 @@ const todoTemplate = document.querySelector("#todo-template");
 const addButton = document.querySelector(".push");
 const form = document.getElementById("js-form");
 
+// ADDED JUNE
+const emptyDialog = document.getElementById("empty-task-dialog");
+const deleteDialog = document.getElementById("todo-dialog");
+const todoExitBtn = document.getElementById("todo-exit");
+const emptyExitBtn = document.getElementById("empty-exit");
+
+const todoDialogTitle = document.getElementById("todo-dialog-title");
+const cancelButton = document.getElementById("cancel");
+const continueButton = document.getElementById("continue");
+
 const url = "https://jsonplaceholder.typicode.com/users/1/todos";
 
-const getData=async()=> {
+const getData = async () => {
   const todoData = await fetch(url);
   const todos = await todoData.json();
 
@@ -17,7 +27,7 @@ const getData=async()=> {
 
     //li to contain fetched todo items
     const apiLi = document.createElement("li");
-   ulDisplay.appendChild(apiLi);
+    ulDisplay.appendChild(apiLi);
 
     const newTodo = document.importNode(todoTemplate.content, true);
 
@@ -26,50 +36,68 @@ const getData=async()=> {
     apiLi.appendChild(todoTitle); //h3 added to li
     const deleteButton = button();
 
-    const addDeleteBtn= apiLi.appendChild(deleteButton);
+    const addDeleteBtn = apiLi.appendChild(deleteButton);
     //p element placeholder added to fetched api li
     const todoCompleted = document.createElement("p");
-   apiLi.appendChild(todoCompleted);
+    apiLi.appendChild(todoCompleted);
 
     //title and completed placeholders replaced with api data
     todoTitle.innerText = title;
+    todoDialogTitle.innerText = title;
     todoCompleted.innerText = completed;
-  ulDisplay.appendChild(newTodo); //todoTemplate added to ui display
+    ulDisplay.appendChild(newTodo); //todoTemplate added to ui display
 
     if (todoCompleted.innerText === "true") {
-      const strikeTitle= todoCompleted.classList.add("strike");
-      const strikeStatus= todoTitle.classList.add("strike");
+      const strikeTitle = todoCompleted.classList.add("strike");
+      const strikeStatus = todoTitle.classList.add("strike");
     }
   });
-}
+};
 getData();
-
-
 
 ulDisplay.addEventListener("click", (e) => {
   const target = e.target;
+
   if (target.className === "btn") {
-    target.parentNode.parentNode.remove();
+    deleteDialog.show();
+    continueButton.onclick = function () {
+      console.log("continue been clicked");
+      target.parentNode.parentNode.remove();
+      deleteDialog.close();
+    };
+    cancelButton.onclick = function () {
+      console.log("cancel been clicked");
+      deleteDialog.close();
+    };
+    todoExitBtn.onclick = function () {
+      console.log("todo x been clicked");
+      deleteDialog.close();
+    };
   }
 });
 
-form.addEventListener("submit", handleFormSubmission, true); // attach event listener
+form.addEventListener("submit", handleFormSubmission); // attach event listener
 
-
- button=()=> {
+button = () => {
   const deleteButton = document.createElement("button"); //create new button element
   const container = document.createElement("div");
   container.appendChild(deleteButton);
   deleteButton.setAttribute("class", "btn"); //set button class to be btn
   deleteButton.appendChild(document.createTextNode("x")); //set button text to say delete
   return container;
-}
-
-
-
+};
 function handleFormSubmission(e) {
   if (input.value.length === 0) {
-    alert("Please enter a task");
+    addButton.onclick = function () {
+      console.log("add button clicked");
+      emptyDialog.show();
+    };
+    emptyExitBtn.onclick = function () {
+      console.log("empty x been clicked");
+      emptyDialog.close();
+    };
+
+    //alert("Please enter a task");
   } else {
     const domObject = document.createElement("li");
     domObject.innerText = input.value;

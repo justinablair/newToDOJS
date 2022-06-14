@@ -10,6 +10,16 @@ class Todo {
     this.todoTemplate = document.querySelector("#todo-template");
     this.input = document.querySelector("#js-form input");
     this.addButton = document.querySelector("#js-form button");
+
+    // ADDED JUNE
+this.emptyDialog = document.getElementById("empty-task-dialog");
+this.deleteDialog = document.getElementById("todo-dialog");
+this.todoExitBtn = document.getElementById("todo-exit");
+this.emptyExitBtn = document.getElementById("empty-exit");
+
+this.todoDialogTitle = document.getElementById("todo-dialog-title");
+this.cancelButton = document.getElementById("cancel");
+this.continueButton = document.getElementById("continue");
   }
 
   setUpEvents(){
@@ -22,7 +32,7 @@ class Todo {
     const todos = await todoData.json();
 
     todos.forEach((todo) => {
-      const title = todo.title;
+      const title= todo.title;
       const completed = todo.completed;
 
       //li to contain fetched todo items
@@ -54,6 +64,9 @@ class Todo {
   }
 
   handleFormSubmission(e) {
+
+
+
 debugger;
     e.preventDefault();
       if (this.input.value.length === 0) {

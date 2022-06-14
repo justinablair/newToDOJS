@@ -11,8 +11,8 @@ h1 {
     margin: 1.25rem 0;
     padding-bottom: 0.625rem;
     text-align: center;
-    
-    
+
+
 }
 
 h2 {
@@ -23,6 +23,9 @@ h2 {
     text-align: center;
 }
 
+.strike {
+    text-decoration: line-through;
+}
 
 
 /* input field */
@@ -56,11 +59,16 @@ h2 {
     position: relative;
     outline: none;
     width: 10%;
-   
-  
+
+
 
 }
 
+/*manual task */
+
+#myUL {
+    font-size: 5rem;
+}
 
 /*pill for new list items*/
 li {
@@ -68,42 +76,89 @@ li {
     border-radius: 0.625rem;
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
     background: #fff;
-   color: #019267;;
+    color: #019267;
+    ;
     cursor: pointer;
-    display: flex;
+
     font-size: 1rem;
     font-weight: bold;
     height: 5.625rem;
+    list-style-type: none;
     margin-bottom: 1rem;
     padding: 0.3125rem 0.625rem;
 
 }
 
-
-
-/*api list item */
-.list-item {
-    background: #ffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-     color: #019267;;
-  list-style-type: none;
-  height: 5.625rem;
-  margin-bottom: 1rem;
- 
+p {
+    margin-top: -1.125rem;
 }
 
-section{
-    padding: 0 0 0 2.5rem;
+/*delete button */
+.btn {
+
+    font-size: 1rem;
+    background-color: #85c88a;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    height: 1.25rem;
+    border-radius: 1.25rem;
+    margin-left: 92%;
+
+    /* margin-top: 1.875rem; */
+    position: relative;
+}
+
+/* ADDED JUNE */
+.exit-button {
+    border: none;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.3125rem;
+    line-height: 0.875rem;
+    min-width: auto;
+    background-color: #dff6ff;
+}
+
+
+#cancel,
+#continue {
+    align-items: center;
+    height: 3.25rem;
+    width: 18.25rem;
+    margin: 1.25rem;
+}
+
+#action-buttons {
+    margin-top: 8rem;
+    display: flex;
 }
 
 
 
-/*manual task */
-
-
-
-
-#myUL{
-    font-size: 5rem;
+#todo-dialog,
+#empty-task-dialog {
+    border: 0.0625rem black;
+    background-color: #dff6ff;
+    border-radius: 25px;
+    position: fixed !important;
+    top: 12.5rem !important;
+    
 }
+
+#todo-dialog {
+    width: 40%;
+    height: 20%;
+}
+
+
+#empty-task-message,
+#toDoTitle {
+    padding: 2.4375rem;
+}
+
+/* -- */
+

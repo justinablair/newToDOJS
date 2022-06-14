@@ -4,33 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
     <title>To Do List</title>
 </head>
 
 <body>
+ 
     <h2>To do List</h2>
 
-    <form id="js-form" onsubmit="()=> handleFormSubmission()">
+    <form id="js-form">
         <input type="text" class='input' placeholder="Enter Task:">
-        <button type="submit"  class="push">Add</button>
+        <button type="submit" class='push'>Add</button>
     </form>
-
- <ul id="myUl"> 
- </ul>
-    
-        <section id= "todo-section"></section>
-        <template id="todo-template">
-            <li class="list-item"> 
-                <div>
-                <h3 class="todo-title"></h3>
-                <p class="todo-completed"></p>
-            </div>
-            
-        </template>
+    <ul id="myUl">  </ul>
+    <template id="todo-template">
+    </template>
 
 
+    <!-- ADDED JUNE -->
+<Dialog id="empty-task-dialog">
+    <h2 id="empty-task-message">Please enter a task!</h2>
+    <button class="exit-button" id="empty-exit">x</button> 
+</Dialog>
 
-    <script src="app.js" defer></script>
+    <dialog id="todo-dialog">  
+        <p id="todo-dialog-title"></p>  
+        <button class="exit-button" id="todo-exit">x</button> 
+        <div id="action-buttons">
+         <button class="btn" id="cancel">Cancel</button>  
+         <button class="btn" id="continue">I'm sure</button>
+        </div>
+        </dialog>  
+    <!-- -->
 </body>
 
 </html>
